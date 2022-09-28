@@ -1,0 +1,22 @@
+<h1>Make a new car</h1>
+
+<%= form_with model: @car do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+<div data-controller="variant">
+  <%= f.fields_for :variants, @car.variants do |variant_fields| %>
+    <div data-variant-target="carFormInner">
+      <%= variant_fields.label :body %>
+      <%= variant_fields.text_field :body %>
+    </div>
+  <% end %>
+      <button data-action="click->variant#addVariant">+</button>
+    </div>
+
+<%= f.submit "Create Car" %>
+<% end %>
+
+<br />
+
+<%= link_to "Home Page", root_path %>

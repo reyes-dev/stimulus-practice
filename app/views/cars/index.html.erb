@@ -1,0 +1,10 @@
+<% @cars.each do |car| %>
+  <h3><%= car.name %></h1>
+  <p>-Types-</p>
+  <% car.variants.each do |variant| %>
+    <%= variant.body %>
+    <br/ >
+  <% end %>
+<% end %>
+<br />
+<%= link_to "New Car", new_car_path(@car) %>
